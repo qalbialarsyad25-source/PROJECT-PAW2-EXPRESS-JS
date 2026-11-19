@@ -1,0 +1,16 @@
+{
+  "name": "project-paw2",
+  "version": "1.0.0",
+  "description": "Project sederhana 1 tabel CRUD menggunakan Express.js dan SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["express", "crud", "sqlite", "paw"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

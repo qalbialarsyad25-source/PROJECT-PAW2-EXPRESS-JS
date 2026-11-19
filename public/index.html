@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Data Mahasiswa - Express.js</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>📚 Manajemen Data Mahasiswa</h1>
+        <p>Aplikasi CRUD 1 Tabel menggunakan <strong>Express.js</strong> dan <strong>SQLite</strong></p>
+      </div>
+      <div class="header-badge">
+        <span class="status-dot"></span> Server Aktif
+      </div>
+    </header>
+
+    <!-- Notifikasi Alert -->
+    <div id="alertBox" class="alert hidden"></div>
+
+    <div class="grid">
+      <!-- Form Tambah / Edit -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2 id="formTitle">➕ Tambah Mahasiswa</h2>
+          <span id="formSubtitle">Masukkan informasi mahasiswa baru</span>
+        </div>
+        
+        <form id="mahasiswaForm">
+          <input type="hidden" id="editId">
+          
+          <div class="form-group">
+            <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+            <input type="text" id="nim" placeholder="Contoh: 220001" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Contoh: Budi Santoso" required>
+          </div>
+
+          <div class="form-group">
+            <label for="jurusan">Program Studi / Jurusan</label>
+            <input type="text" id="jurusan" placeholder="Contoh: Teknik Informatika" required>
+          </div>
+
+          <div class="form-group">
+            <label for="angkatan">Tahun Angkatan</label>
+            <input type="number" id="angkatan" placeholder="Contoh: 2023" min="2000" max="2099" required>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="btnSubmit" class="btn btn-primary">Simpan Data</button>
+            <button type="button" id="btnCancel" class="btn btn-secondary hidden">Batal Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Tabel Data & Filter -->
+      <section class="card table-card">
+        <div class="card-header flex-between">
+          <div>
+            <h2>📋 Daftar Mahasiswa</h2>
+            <span id="totalDataCount">Memuat data...</span>
+          </div>
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari NIM, Nama, atau Jurusan...">
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NIM</th>
+                <th>Nama Lengkap</th>
+                <th>Jurusan</th>
+                <th>Angkatan</th>
+                <th class="text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <td colspan="6" class="text-center">Memuat data mahasiswa...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
